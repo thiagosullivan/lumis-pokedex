@@ -6,7 +6,9 @@ const Footer = () => {
     <footer className={styles.footer}>
       <p>
         Desenvolvido por{" "}
-        <Link to="https://thiagosullivanportfolio.vercel.app/">Thiago</Link>
+        <Link to="https://thiagosullivanportfolio.vercel.app/">
+          <b>Thiago</b>
+        </Link>
       </p>
     </footer>
   );
