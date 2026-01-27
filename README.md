@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+## Images
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# PokéDex - Desafio Técnico
 
-## React Compiler
+Este projeto consiste em uma PokéDex interativa desenvolvida para o desafio técnico da **Lumis**. A aplicação permite listar, buscar e navegar pelos Pokémon de forma fluida, seguindo fielmente o design proposto no Figma.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tecnologias Utilizadas e Justificativas
 
-## Expanding the ESLint configuration
+Embora o desafio sugerisse o uso de Vanilla JS, optei por uma stack moderna baseada nos requisitos da vaga e nas necessidades de escalabilidade do projeto:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ⚛️ React & Vite
+*   **React:** Foi escolhido para garantir uma interface reativa e componentizada, permitindo que a busca e a paginação ocorram sem o recarregamento da página (single page aplication), conforme solicitado nos requisitos de interatividade.
+*   **Vite:** Utilizado como build tool pela sua velocidade de inicialização, proporcionando uma experiência de desenvolvimento superior ao webpack.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 📘 TypeScript
+*   Adotado para trazer segurança ao código através da tipagem estática. Em um projeto que consome uma API externa como a PokéAPI, o TypeScript ajuda a prevenir erros de runtime, também era um requisito da vaga.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🎨 SASS (SCSS Modules)
+*   Conforme requisitado na descrição da vaga, utilizei o **SASS** para organizar os estilos. O uso de **CSS Modules** garante o escopo das classes, evitando conflitos, enquanto o SASS facilita a gestão de variáveis (como a paleta de cores dos tipos de Pokémon) e a implementação de mixins para breakpoints responsivos.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🚀 TanStack Query (React Query)
+*   Implementado para gerenciar as requisições HTTP e o estado de cache. 
+    *   **Performance:** Evita chamadas repetitivas à API para o mesmo Pokémon.
+    *   **UX:** Gerencia estados de *loading* e *error* de forma nativa, garantindo uma navegação instantânea para dados já carregados.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📋 Funcionalidades Implementadas
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Listagem Dinâmica:** Renderização de cards com ID, nome, tipos e imagem.
+2.  **Busca em Tempo Real:** Filtro de Pokémon por nome ou tipo sem recarregar a página.
+3.  **Paginação:** Navegação controlada para garantir a performance da aplicação ao lidar com grandes volumes de dados.
+4.  **Responsividade Total:** Layout adaptável para Mobile, Tablet e Desktop, utilizando CSS Grid e Flexbox.
+5.  **Identidade Visual:** Seguindo o layout disponibilizado no Figma do desafio.
+
+---
+
+## 📷 Imagens
+
+### Home
+![Home](https://i.ibb.co/93TXMgS7/pokedex-home.png "Home")
+
+### Página de Detalhes
+![Págiona de Detalhes](https://i.ibb.co/27rnmzXh/pokedex-details.png "Págiona de Detalhes")
+
+## 🚀 Como Executar o Projeto
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/thiagosullivan/lumis-pokedex
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
+
+3.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Acesse no navegador:**
+    `http://localhost:5173`
+
+---
+
+## 📌 Observações Adicionais
+
+*   **Git Flow:** O desenvolvimento seguiu boas práticas de versionamento com commits semânticos.
+*   **Arquitetura:** O código foi organizado em componentes menores e reutilizáveis (Card, Search, Grid, Loading), visando legibilidade e facilidade de teste.
+
+Desenvolvido por **Thiago Sullivan**
