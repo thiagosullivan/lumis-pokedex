@@ -27,7 +27,7 @@ export const Search: React.FC<serchProps> = ({
         <div className={styles.searchIcon}>
           {search ? (
             <button onClick={onClearSearch} aria-label="Limpar busca">
-              <IoMdClose />
+              <IoMdClose style={{ color: "#ff0000" }} />
             </button>
           ) : (
             <IoSearch />
