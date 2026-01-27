@@ -1,0 +1,31 @@
+@import "variables";
+@import "reset";
+// @import "globals";
+@import "../styles/mixins";
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  justify-items: center;
+  margin: 0 auto;
+
+  @include xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.loading {
+  min-height: calc(100vh - 500px);
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
