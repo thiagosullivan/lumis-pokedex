@@ -1,0 +1,97 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.backButton {
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 1rem;
+  display: block;
+  color: $gray-one;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.pokemonDetails {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: $card-background;
+  border-radius: 18px;
+  padding: 2rem;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Outfit", sans-serif;
+    color: $gray-one;
+    border-bottom: 1px solid $gray-three;
+    padding-bottom: 1rem;
+
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .pokemonContent {
+    .pokemonImage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      img {
+        max-width: 300px;
+        width: 300px;
+
+        @include sm {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+    .pokemonInfos {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-family: "Montserrat", sans-serif;
+
+      @include sm {
+        flex-direction: column;
+      }
+      .infoSection {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+
+        h3 {
+          font-size: 24px;
+          color: $gray-one;
+          font-family: "Outfit", sans-serif;
+          border-bottom: 1px solid $gray-one;
+          margin-bottom: 1rem;
+
+          @include sm {
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid $gray-three;
+          }
+        }
+
+        .type,
+        .stats,
+        .abilities {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          text-transform: capitalize;
+        }
+
+        .subStats {
+          display: flex;
+          gap: 4px;
+        }
+      }
+    }
+  }
+}
