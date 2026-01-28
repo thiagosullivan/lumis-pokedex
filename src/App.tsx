@@ -7,6 +7,7 @@ import { Search } from "./components/Search/Search";
 interface OutletContext {
   pokemons: any[];
   isLoading: boolean;
+  isFetching: boolean;
   isSearchMode: boolean;
   page: number;
   totalPages: number;
@@ -20,6 +21,7 @@ function App() {
   const {
     pokemons,
     isLoading,
+    isFetching,
     isSearchMode,
     page,
     totalPages,
@@ -29,7 +31,7 @@ function App() {
     clearSearch,
   } = useOutletContext<OutletContext>();
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
       <div>
         <Search

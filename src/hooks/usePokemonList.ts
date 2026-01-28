@@ -44,7 +44,9 @@ export const usePokemonList = () => {
         };
       }
     },
-    placeholderData: { pokemons: [], totalCount: 0, isSearch: false },
+    placeholderData: !debouncedSearch
+      ? (previousData) => previousData
+      : undefined,
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
