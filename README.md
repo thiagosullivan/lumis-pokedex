@@ -40,7 +40,7 @@ Embora o desafio sugerisse o uso de Vanilla JS, optei por uma stack moderna base
 ## 📷 Imagens
 
 ### Home
-![Home](https://i.ibb.co/93TXMgS7/pokedex-home.png "Home")
+![Home](https://i.ibb.co/93TXMgS7/pokedex-home.png?raw=true "Home")
 
 ### Página de Detalhes
 ![Págiona de Detalhes](https://i.ibb.co/27rnmzXh/pokedex-details.png "Págiona de Detalhes")
