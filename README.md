@@ -1,10 +1,10 @@
-## Images
-
-
-
 # PokéDex - Desafio Técnico
 
 Este projeto consiste em uma PokéDex interativa desenvolvida para o desafio técnico da **Lumis**. A aplicação permite listar, buscar e navegar pelos Pokémon de forma fluida, seguindo fielmente o design proposto no Figma.
+
+
+Live Demo: https://thiagosullivan.github.io/lumis-pokedex/
+
 
 ## 🛠️ Tecnologias Utilizadas e Justificativas
 
