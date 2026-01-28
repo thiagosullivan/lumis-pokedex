@@ -18,12 +18,10 @@ const queryClient = new QueryClient({
   },
 });
 
-const basename = import.meta.env.PROD ? "/lumis-pokedex" : "";
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <HashRouter basename={basename}>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<App />} />
