@@ -3,6 +3,12 @@ import { useQuery } from "@tanstack/react-query";
 import { pokeapi } from "../services/pokeapi";
 import { pokemonQueryKeys } from "./queryKeys";
 
+interface PokemonQueryData {
+  pokemons: any[];
+  totalCount: number;
+  isSearch: boolean;
+}
+
 export const usePokemonList = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -17,7 +23,7 @@ export const usePokemonList = () => {
     return () => clearTimeout(timer);
   }, [search]);
 
-  const query = useQuery({
+  const query = useQuery<PokemonQueryData>({
     queryKey: pokemonQueryKeys.list({
       search: debouncedSearch,
       page,
@@ -38,7 +44,7 @@ export const usePokemonList = () => {
         };
       }
     },
-    keepPreviousData: true,
+    placeholderData: { pokemons: [], totalCount: 0, isSearch: false },
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,
     refetchOnMount: false,

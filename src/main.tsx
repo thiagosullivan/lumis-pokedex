@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./styles/_reset.scss";
 import "./styles/main.scss";
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PokemonDetail } from "./components/PokemonDetail/PokemonDetail.tsx";
@@ -12,7 +12,8 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 1000 * 60 * 5,
-      cacheTime: 1000 * 60 * 10,
+      // cacheTime: 1000 * 60 * 10,
+      gcTime: 1000 * 60 * 10,
     },
   },
 });

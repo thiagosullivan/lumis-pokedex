@@ -79,7 +79,7 @@ let cachedPokemons: PokemonListItem[] | null = null;
 
 export const pokeapi = {
   async getPokemons(limit: number = 200): Promise<PokemonListItem[]> {
-    if (cachedPokemons) {
+    if (cachedPokemons && cachedPokemons.length > 0) {
       return cachedPokemons;
     }
 
@@ -93,7 +93,7 @@ export const pokeapi = {
 
       cachedPokemons = response.data.results;
 
-      return cachedPokemons;
+      return cachedPokemons || [];
     } catch (error) {
       console.error("Error:", error);
       throw error;
